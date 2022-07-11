@@ -13,5 +13,30 @@
         </div>
     </header>
     {{- .Content -}}
+
+    <!-- Add categories if they exist -->
+
+    {{ with (.GetTerms "categories") }}
+    
+        <p><strong>Categories</strong>:
+            {{ range (.) }}
+                <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            {{ end }}
+        </p>
+    
+    {{ end }}
+
+    <!-- Get tags if they exist -->
+
+    {{ with (.GetTerms "tags") }}
+        
+        <p><strong>Tags</strong>:
+            {{ range (.) }}
+                <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            {{ end }}
+        </p>
+    
+    {{ end }}
+    
 </article>
 {{ end }}
