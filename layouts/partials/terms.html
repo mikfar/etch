@@ -1,0 +1,29 @@
+<!-- 
+Explanation of .GetTerms can be found here:
+https://github.com/gohugoio/hugo/issues/6905
+Basically, it returns the terms for a particular taxonomy (tags, categories, series etc.)
+-->
+
+<!-- Add categories if they exist -->
+
+{{ with (.GetTerms "categories") }}
+
+    <p><strong>Categories</strong>:
+        {{ range (.) }}
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+    </p>
+
+{{ end }}
+
+<!-- Get tags if they exist -->
+
+{{ with (.GetTerms "tags") }}
+
+    <p><strong>Tags</strong>:
+        {{ range (.) }}
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        {{ end }}
+    </p>
+
+{{ end }}
