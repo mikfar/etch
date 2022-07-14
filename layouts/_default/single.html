@@ -13,10 +13,8 @@
         </div>
     </header>
     {{- .Content -}}
-
-    {{ if .Site.Params.postTags }}
+    {{ if .Site.Params.postTags -}}
         {{ partial "terms.html" . }}
     {{ end }}
-
 </article>
 {{ end }}
